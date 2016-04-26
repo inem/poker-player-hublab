@@ -13,7 +13,7 @@ class Player
         500
       end
     rescue
-      2000
+      rand(2000)+100
     end
 
   end

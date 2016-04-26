@@ -9,7 +9,7 @@ class Player
     game_state = GameState.new(game_state)
     pocket_odds = PocketOdds.new(game_state)
     odds = pocket_odds.percent_pre_flop
-    return rand(1700)+700 * (1 + odds)
+    return rand(700)+200 * (1 + odds)
   end
 
   def showdown(game_state)

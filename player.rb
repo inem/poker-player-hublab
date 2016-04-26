@@ -2,14 +2,11 @@ require_relative "game_state"
 
 
 class Player
-
-  VERSION = "Randy"
+  VERSION = "Mandy"
 
   def bet_request(game_state)
     begin
-      if !two_players?(game_state)
-        return 0
-      else
+
         cards = hole_cards(game_state)
         if pair_or_more?(cards)
           puts "500"
@@ -18,7 +15,7 @@ class Player
           puts "0"
           0
         end
-      end
+
     rescue
       puts "exception"
       rand(700)+100
@@ -32,10 +29,6 @@ class Player
 
   def pair_or_more?(cards)
     cards.uniq.size < cards.size
-  end
-
-  def two_players?(game_state)
-    game_state["players"].size
   end
 
   def hole_cards(game_state)

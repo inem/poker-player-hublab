@@ -1,8 +1,12 @@
 
 class GameState
-  def my_cards(game_state)
+  def initialize(state)
+    @state = state
+  end
+
+  def my_cards
     our_player = nil
-    game_state["players"].each do |player|
+    @state["players"].each do |player|
       if player["name"] == "HubLab"
         our_player = player
       end

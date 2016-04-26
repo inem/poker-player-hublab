@@ -6,6 +6,7 @@ class Player
   VERSION = "Bandy"
 
   def bet_request(game_state)
+    puts game_state
     begin
       game_state = GameState.new(game_state)
       pocket_odds = PocketOdds.new(game_state)
@@ -18,7 +19,7 @@ class Player
       puts "expected_value: #{expected_value}"
 
       if expected_value >= call_amount
-        bet = expected_value.to_i * 3
+        bet = expected_value.to_i * 3 + 20
         puts "bet: #{bet}"
         bet
       else

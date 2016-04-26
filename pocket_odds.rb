@@ -2,7 +2,7 @@ class PocketOdds
 
   attr_reader :cards
 
-  DEFAULT_VALUE = 0.1
+  DEFAULT_VALUE = 0.33
 
   def initialize(game_state)
     @cards = game_state.my_cards

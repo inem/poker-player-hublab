@@ -2,6 +2,8 @@ class PocketOdds
 
   attr_reader :cards
 
+  DEFAULT_VALUE = 0.0
+
   def initialize(game_state)
     @cards = game_state.my_cards
   end
@@ -21,7 +23,7 @@ class PocketOdds
           '6' => 0.63
       }
 
-      pair_map[rank] || 0
+      pair_map[rank] || DEFAULT_VALUE
     elsif suited?
       card_map = {
           'AK' => 0.67,
@@ -30,7 +32,7 @@ class PocketOdds
           '10A' => 0.65,
           'KQ' => 0.63
       }
-      card_map[rank_string] || 0
+      card_map[rank_string] || DEFAULT_VALUE
     else
       card_map = {
           'AK' => 0.65,
@@ -38,7 +40,7 @@ class PocketOdds
           'AJ' => 0.64,
           '10A' => 0.63
       }
-      card_map[rank_string] || 0
+      card_map[rank_string] || DEFAULT_VALUE
     end
   end
 

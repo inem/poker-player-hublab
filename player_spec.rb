@@ -32,7 +32,7 @@ RSpec.describe Player do
     expect(player.hole_cards(sample_game_state)).to eql(["6", "6"])
 
     cards = player.hole_cards(sample_game_state)
-    expect(player.pair_or_more?(cards)).to be_true
+    expect(player.pair_or_more?(cards)).to be true
 
   end
 

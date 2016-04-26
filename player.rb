@@ -3,17 +3,22 @@ require_relative "game_state"
 
 class Player
 
-  VERSION = "Default Ruby folding player"
+  VERSION = "Randy"
 
   def bet_request(game_state)
     begin
-      if pair_or_more?(our_player(game_state))
-        20000
+      cards = player.hole_cards(game_state)
+
+      if player.pair_or_more?(cards)
+        puts "500"
+        rand(700)+100
       else
-        500
+        puts "0"
+        0
       end
     rescue
-      rand(2000)+100
+      puts "exception"
+      rand(700)+100
     end
 
   end

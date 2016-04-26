@@ -1,6 +1,10 @@
 require_relative "player"
+require_relative "pocket_odds"
 
 RSpec.describe Player do
+  before :each do
+    srand(1000)
+  end
   let(:player) { Player.new }
   let(:sample_game_state){
     {
@@ -69,8 +73,65 @@ RSpec.describe Player do
     expect(player.pair_or_more?(cards)).to be false
   end
 
+
   it "detects pairs correctly" do
     player = Player.new
     expect(player.bet_request(sample_game_state)).not_to eql(0)
   end
 end
+
+  it "should use pocket calculator to place bets" do
+    pocket_odds_calculator = PocketOdds.new
+
+    pair = [{"rank" => "6", "suit" => "hearts"}, {"rank" => "6", "suit" => "spades"}]
+    two_undercards = [{"rank" => "5", "suit" => "hearts"}, {"rank" => "4", "suit" => "spades"}]
+    sample_game_state = {
+        "players" => [
+            {
+                "id" => 1,
+                "name" => "HubLab",
+                "hole_cards" => pair
+            },
+            {
+                "id" => 2,
+                "name" => "Bob",
+                "hole_cards" => two_undercards
+            }
+        ]
+    }
+    odds = pocket_odds_calculator.percent_pre_flop(sample_game_state)
+    expect(player.bet_request(sample_game_state)).to equal 435
+
+  end
+
+  # it "detects pairs correctly" do
+  #   player = Player.new
+
+  #   hole_cards = [
+  #               {
+  #                   rank: "6",
+  #                   suit: "hearts"
+  #               },
+  #               {
+  #                   rank: "6",
+  #                   suit: "spades"
+  #               }
+  #           ]
+
+  #   sample_game_state = {
+  #     "players" => [
+  #         {
+  #             "id" => 1,
+  #             "name" => "Alice"
+  #         },
+  #         {
+  #             "id" => 2,
+  #             "name" => "Bob"
+  #         }
+  #     ]
+  #   }
+
+  #   expect(player(sample_game_state).pair_or_more?(hole_cards)).to be_true
+  # end
+end
+>>>>>>> Using odds to calculate bet

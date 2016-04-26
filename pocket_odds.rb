@@ -1,4 +1,5 @@
 class PocketOdds
+<<<<<<< 190357c06f7fa0cd3b15f3d714c5d879828d5db7
   attr_reader :cards
 
   def initialize(game_state)

@@ -73,11 +73,11 @@ RSpec.describe Player do
   }
 
   it "should bet high if there's no buy-in" do
-    expect(player.bet_request(sample_game_state)).to be_within(0.1).of(50)
+    expect(player.bet_request(sample_game_state)).to be_within(0.1).of(63)
   end
 
   it "should bet less high if there is a buy-in" do
-    expect(player.bet_request(sample_game_state2)).to be_within(0.1).of(0)
+    expect(player.bet_request(sample_game_state2)).to be_within(0.1).of(59.3)
   end
 
 end

@@ -18,10 +18,11 @@ class Player
       puts "expected_value: #{expected_value}"
 
       if expected_value >= call_amount
+        bet = expected_value.round
         puts "bet: #{expected_value}"
-        expected_value
+        bet
       else
-        call_amount
+        0
       end
     rescue
       puts "exception"

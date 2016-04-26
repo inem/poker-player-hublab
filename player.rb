@@ -6,11 +6,16 @@ class Player
   VERSION = "Default Ruby folding player"
 
   def bet_request(game_state)
-    if pair_or_more?(our_player(game_state))
-      20000
-    else
-      500
+    begin
+      if pair_or_more?(our_player(game_state))
+        20000
+      else
+        500
+      end
+    rescue
+      2000
     end
+
   end
 
   def showdown(game_state)

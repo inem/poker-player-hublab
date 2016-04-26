@@ -30,7 +30,11 @@ class PocketOdds
           'AQ' => 0.66,
           'AJ' => 0.65,
           '10A' => 0.65,
-          'KQ' => 0.63
+          'KQ' => 0.63,
+          'JK' => 0.59,
+          '10J' => 0.58,
+          '10Q' => 0.57
+          'JQ' => 0.55
       }
       card_map[rank_string] || DEFAULT_VALUE
     else
@@ -38,7 +42,12 @@ class PocketOdds
           'AK' => 0.65,
           'AQ' => 0.65,
           'AJ' => 0.64,
-          '10A' => 0.63
+          '10A' => 0.63,
+          'KQ' => 0.63,
+          'JK' => 0.59,
+          '10J' => 0.58,
+          '10Q' => 0.57
+          'JQ' => 0.55
       }
       card_map[rank_string] || DEFAULT_VALUE
     end

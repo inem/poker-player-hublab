@@ -18,8 +18,8 @@ class Player
       puts "expected_value: #{expected_value}"
 
       if expected_value >= call_amount
-        bet = expected_value.ceil
-        puts "bet: #{expected_value}"
+        bet = expected_value.to_i
+        puts "bet: #{bet}"
         bet
       else
         0

@@ -38,5 +38,10 @@ class GameState
   def minimum_raise
     @state["minimum_raise"].to_i
   end
+
+  def is_pre_flop
+    @state["community_cards"].empty?
+  end
+
 end
 

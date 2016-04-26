@@ -13,7 +13,7 @@ class Player
       rand(1700)+700 * (1 + odds)
     rescue
       puts "exception"
-      rand(1700)+700
+      0
     end
   end
 

@@ -17,11 +17,11 @@ class Player
       expected_value = (odds * game_state.pot) - ((1-odds) * call_amount)
       puts "expected_value: #{expected_value}"
 
-      if expected_value > (call_amount + game_state.minimum_raise)
-        puts "minimum_raise: #{game_state.minimum_raise}"
-        game_state.minimum_raise
+      if expected_value >= call_amount
+        puts "bet: #{expected_value}"
+        expected_value
       else
-        0
+        call_amount
       end
     rescue
       puts "exception"

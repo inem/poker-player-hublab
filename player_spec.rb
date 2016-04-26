@@ -1,17 +1,21 @@
-require "player"
+require_relative "player"
 
-# RSpec.describe Player do
-#   it "sums the prices of its line items" do
-    # order = Order.new
-    #
-    # order.add_entry(LineItem.new(:item => Item.new(
-    #     :price => Money.new(1.11, :USD)
-    # )))
-    # order.add_entry(LineItem.new(:item => Item.new(
-    #     :price => Money.new(2.22, :USD),
-    #     :quantity => 2
-    # )))
-    #
-    # expect(order.total).to eq(Money.new(5.55, :USD))
-  # end
-# end
+RSpec.describe Player do
+  it "parses game_state successfully" do
+    player = Player.new
+    sample_game_state = {
+      "players" => [
+          {
+              "id" => 1,
+              "name" => "Alice"
+          },
+          {
+              "id" => 2,
+              "name" => "Bob"
+          }
+      ]
+    }
+
+    expect(player.bet_request(sample_game_state)).to equal 20000
+  end
+end

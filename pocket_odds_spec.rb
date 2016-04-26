@@ -1,13 +1,7 @@
 require_relative "pocket_odds"
 
 RSpec.describe PocketOdds do
-<<<<<<< 190357c06f7fa0cd3b15f3d714c5d879828d5db7
   subject { described_class.new(game_state) }
-=======
-
-  it "returns 0.85 for our pair vs. 2 undercards" do
-    pocket_odds_calculator = PocketOdds.new
->>>>>>> Using odds to calculate bet
 
   let(:game_state) { double(:game_state, my_cards: cards ) }
   let(:cards) { [{"rank" => "A", "suit" => "hearts"}, {"rank" => "A", "suit" => "spades"}] }

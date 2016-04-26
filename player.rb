@@ -6,6 +6,7 @@ class Player
   VERSION = "Randy"
 
   def bet_request(game_state)
+    odds = PocketOdds.new(GameState.new(game_state))
     begin
       if !two_players?(game_state)
         return 0

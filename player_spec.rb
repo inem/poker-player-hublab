@@ -78,7 +78,7 @@ RSpec.describe Player do
     player = Player.new
     expect(player.bet_request(sample_game_state)).not_to eql(0)
   end
-end
+
 
   it "should use pocket calculator to place bets" do
     game_state = GameState.new(sample_game_state)

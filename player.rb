@@ -27,6 +27,7 @@ class Player
 
       if game_state.is_pre_flop
         bet *= 3
+        bet += rand(30)
         bet
       else
         call_amount

@@ -13,17 +13,23 @@ class Player
       odds = pocket_odds.percent_pre_flop
 
       call_amount = game_state.current_buy_in - game_state.my_bet
-
-      puts "odds: #{odds}"
       expected_value = (odds * game_state.pot) - ((1-odds) * call_amount)
-      puts "expected_value: #{expected_value}"
 
+      bet = 0
       if expected_value >= call_amount
-        bet = expected_value.to_i * 3 + 20
-        puts "bet: #{bet}"
+        bet = expected_value.to_i
+      end
+
+      puts "hole cards: #{game_state.my_cards}"
+      puts "odds: #{odds}"
+      puts "expected_value: #{expected_value}"
+      puts "bet: #{bet}"
+
+      if game_state.is_pre_flop
+        bet = expected_value.to_i * 3
         bet
       else
-        0
+        call_amount
       end
     rescue
       puts "exception"

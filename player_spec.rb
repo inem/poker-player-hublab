@@ -22,8 +22,8 @@ RSpec.describe Player do
                         "rank" => "6",
                         "suit" => "spades"
                     },
-                    "my_bet" => "0"
-                ]
+                ],
+                  "bet" => "0"
 
               },
               {
@@ -31,10 +31,24 @@ RSpec.describe Player do
                   "name" => "Bob"
               }
           ],
+          "community_cards" => [
+            {
+                "rank" => "4",
+                "suit" => "spades"
+              },
+            {
+                  "rank" => "A",
+              "suit" => "hearts"
+          },
+              {
+                  "rank" => "6",
+              "suit" => "clubs"
+          }
+          ],
 
           "minimum_raise" => "50",
           "pot" => "100",
-          "current_buy_in" => "0"
+          "current_buy_in" => "10"
         }
 
   }
@@ -55,13 +69,27 @@ RSpec.describe Player do
                         "rank" => "6",
                         "suit" => "spades"
                     },
-                    "my_bet" => "0"
-                ]
+                ],
+                "my_bet" => "0"
 
             },
             {
                 "id" => 2,
                 "name" => "Bob"
+            }
+        ],
+        "community_cards" => [
+            {
+                "rank" => "4",
+                "suit" => "spades"
+            },
+            {
+                "rank" => "A",
+                "suit" => "hearts"
+            },
+            {
+                "rank" => "6",
+                "suit" => "clubs"
             }
         ],
 
@@ -73,11 +101,11 @@ RSpec.describe Player do
   }
 
   it "should bet high if there's no buy-in" do
-    expect(player.bet_request(sample_game_state)).to be_within(0.1).of(63)
+    expect(player.bet_request(sample_game_state)).to be_within(0.1).of(10)
   end
 
   it "should bet less high if there is a buy-in" do
-    expect(player.bet_request(sample_game_state2)).to be_within(0.1).of(59.3)
+    expect(player.bet_request(sample_game_state2)).to be_within(0.1).of(10)
   end
 
 end

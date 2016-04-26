@@ -7,7 +7,9 @@ class Player
 
   def bet_request(game_state)
     begin
-      if pair_or_more?(our_player(game_state))
+      cards = player.hole_cards(game_state)
+
+      if player.pair_or_more?(cards)
         puts "500"
         rand(700)+100
       else

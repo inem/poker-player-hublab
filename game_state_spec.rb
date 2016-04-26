@@ -2,7 +2,6 @@ require_relative "game_state"
 
 RSpec.describe GameState do
   it "returns the current players' cards" do
-    game_state = GameState.new
     expectation = [{"rank" => "6", "suit" => "hearts"}, {"rank" => "K", "suit" => "spades"}]
     sample_game_state = {
         "players" => [
@@ -19,6 +18,8 @@ RSpec.describe GameState do
         ]
     }
 
-    expect(game_state.my_cards(sample_game_state)).to eq expectation
+    game_state = GameState.new(sample_game_state)
+
+    expect(game_state.my_cards()).to eq expectation
   end
 end

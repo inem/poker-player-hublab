@@ -3,7 +3,7 @@ require_relative "pocket_odds"
 
 
 class Player
-  VERSION = "Mandy"
+  VERSION = "Bandy"
 
   def bet_request(game_state)
     begin

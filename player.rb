@@ -18,7 +18,8 @@ class Player
       puts "expected_value: #{expected_value}"
 
       if expected_value > (call_amount + game_state.minimum_raise)
-        game_state.minimum_raise.to_i
+        puts "minimum_raise: #{game_state.minimum_raise}"
+        game_state.minimum_raise
       else
         0
       end

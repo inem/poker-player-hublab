@@ -1,5 +1,8 @@
 
 class GameState
+
+  attr_reader :cards
+
   def initialize(state)
     @state = state
   end
@@ -26,6 +29,14 @@ class GameState
 
   def current_buy_in
     @state["current_buy_in"].to_i
+  end
+
+  def pot
+    @state["pot"].to_i
+  end
+
+  def minimum_raise
+    @state["minimum_raise"].to_i
   end
 end
 

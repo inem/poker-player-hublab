@@ -6,10 +6,26 @@ class Player
   VERSION = "Mandy"
 
   def bet_request(game_state)
-    game_state = GameState.new(game_state)
-    pocket_odds = PocketOdds.new(game_state)
-    odds = pocket_odds.percent_pre_flop
-    return rand(700)+200 * (1 + odds)
+    begin
+      game_state = GameState.new(game_state)
+      pocket_odds = PocketOdds.new(game_state)
+      odds = pocket_odds.percent_pre_flop
+
+      call_amount = game_state.current_buy_in - game_state.my_bet
+
+      puts "odds: #{odds}"
+      expected_value = (odds * game_state.pot) - ((1-odds) * call_amount)
+      puts "expected_value: #{expected_value}"
+
+      if expected_value > (call_amount + game_state.minimum_raise)
+        game_state.minimum_raise
+      else
+        0
+      end
+    rescue
+      puts "exception"
+      0
+    end
   end
 
   def showdown(game_state)

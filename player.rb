@@ -32,13 +32,11 @@ class Player
         bet = call_amount
       end
 
-      bet = 0 if fold?
-
       puts "hole cards: #{game_state.my_cards}"
       puts "odds: #{odds}"
       puts "expected_value: #{expected_value}"
       puts "bet: #{bet}"
-      puts "fold: #{fold?}"
+
       bet
     rescue
       puts "exception"

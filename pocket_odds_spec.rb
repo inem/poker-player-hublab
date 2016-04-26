@@ -10,6 +10,13 @@ RSpec.describe PocketOdds do
     expect(subject.percent_pre_flop).to eq 0.85
   end
 
+  context 'shitty cards' do
+    let(:cards) { [{"rank" => "2", "suit" => "hearts"}, {"rank" => "7", "suit" => "spades"}] }
+    it 'should give a value for a pair of kings' do
+      expect(subject.percent_pre_flop).to eq 0
+    end
+  end
+
   context 'pair of kings' do
     let(:cards) { [{"rank" => "K", "suit" => "hearts"}, {"rank" => "K", "suit" => "spades"}] }
     it 'should give a value for a pair of kings' do
@@ -17,10 +24,10 @@ RSpec.describe PocketOdds do
     end
   end
 
-  context 'shitty cards' do
-    let(:cards) { [{"rank" => "2", "suit" => "hearts"}, {"rank" => "7", "suit" => "spades"}] }
+  context 'pair of queens' do
+    let(:cards) { [{"rank" => "Q", "suit" => "hearts"}, {"rank" => "Q", "suit" => "spades"}] }
     it 'should give a value for a pair of kings' do
-      expect(subject.percent_pre_flop).to eq 0
+      expect(subject.percent_pre_flop).to eq 0.80
     end
   end
 end

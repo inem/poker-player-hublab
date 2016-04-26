@@ -9,8 +9,10 @@ class Player
     begin
       if pair_or_more?(our_player(game_state))
         20000
+        puts "pair_or_more"
       else
         500
+        puts "else"
       end
     rescue
       rand(2000)+100

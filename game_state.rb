@@ -43,5 +43,14 @@ class GameState
     @state["community_cards"].empty?
   end
 
-end
+  def paired_up?
 
+  def fold?
+    return false if is_pre_flop
+    card_ranks = @state["community_cards"].collect do |f|
+      f['rank']
+    end
+    card_ranks.uniq.length == card_ranks.length
+  end
+
+end

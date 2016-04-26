@@ -11,6 +11,7 @@ class Player
       pocket_odds = PocketOdds.new(game_state)
       odds = pocket_odds.percent_pre_flop
       rand(1700)+700 * (1 + odds)
+      puts "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     rescue
       puts "exception"
       0

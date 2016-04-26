@@ -9,8 +9,13 @@ class Player
       odds = PocketOdds.new(GameState.new(game_state))
       rand(1700)+700 * (1 + odds)
     rescue
-      puts "exception"
-      rand(1700)+700
+      if pair_or_more?(cards)
+        puts "500"
+        rand(1700)+700
+      else
+        puts "0"
+        rand(75)+75
+      end
     end
   end
 

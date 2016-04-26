@@ -5,14 +5,13 @@ class Player
   VERSION = "Mandy"
 
   def bet_request(game_state)
-    odds = PocketOdds.new(GameState.new(game_state))
     begin
+      odds = PocketOdds.new(GameState.new(game_state))
       rand(1700)+700 * (1 + odds)
     rescue
       puts "exception"
       rand(1700)+700
     end
-
   end
 
   def showdown(game_state)

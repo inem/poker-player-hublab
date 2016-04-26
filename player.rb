@@ -20,18 +20,24 @@ class Player
         bet = [expected_value.to_i, 0].max
       end
 
+      if game_state.is_pre_flop
+        if pocket_odds.pair?
+          puts "pair detected, calling"
+          bet = call_amount
+        else
+          bet *= 3
+          bet += rand(30)
+        end
+      else
+        bet = call_amount
+      end
+
       puts "hole cards: #{game_state.my_cards}"
       puts "odds: #{odds}"
       puts "expected_value: #{expected_value}"
       puts "bet: #{bet}"
 
-      if game_state.is_pre_flop
-        bet *= 3
-        bet += rand(30)
-        bet
-      else
-        call_amount
-      end
+      bet
     rescue
       puts "exception"
       0

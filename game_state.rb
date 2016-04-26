@@ -27,6 +27,11 @@ class GameState
     our_player["bet"].to_i
   end
 
+  def my_stack
+    our_player = my_player
+    our_player["stack"].to_i
+  end
+
   def current_buy_in
     @state["current_buy_in"].to_i
   end

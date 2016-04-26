@@ -53,15 +53,16 @@ class PocketOdds
     end
   end
 
+  def pair?
+    cards[0]['rank'] == cards[1]['rank']
+  end
+
   private
 
   def suited?
     cards[0]['suit'] == cards[1]['suit']
   end
 
-  def pair?
-    cards[0]['rank'] == cards[1]['rank']
-  end
 
   def rank_string
     cards.map { |c| c['rank'] }.sort.join('')

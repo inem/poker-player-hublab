@@ -18,7 +18,7 @@ class Player
       puts "expected_value: #{expected_value}"
 
       if expected_value >= call_amount
-        bet = expected_value.round
+        bet = expected_value.ceil
         puts "bet: #{expected_value}"
         bet
       else

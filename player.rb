@@ -17,7 +17,7 @@ class Player
 
       bet = 0
       if expected_value >= call_amount
-        bet = expected_value.to_i
+        bet = [expected_value.to_i, 0].max
       end
 
       puts "hole cards: #{game_state.my_cards}"
@@ -26,7 +26,7 @@ class Player
       puts "bet: #{bet}"
 
       if game_state.is_pre_flop
-        bet = expected_value.to_i * 3
+        bet *= 3
         bet
       else
         call_amount

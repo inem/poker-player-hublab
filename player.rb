@@ -13,7 +13,7 @@ class Player
           rand(1700)+700
         else
           puts "0"
-          150
+          rand(75)+75
         end
 
     rescue

@@ -15,6 +15,7 @@ class Player
         0
       end
     rescue
+      puts "exception"
       rand(700)+100
     end
 

@@ -10,7 +10,7 @@ class Player
         cards = hole_cards(game_state)
         if pair_or_more?(cards)
           puts "500"
-          rand(700)+100
+          rand(1700)+700
         else
           puts "0"
           0
@@ -18,7 +18,7 @@ class Player
 
     rescue
       puts "exception"
-      rand(700)+100
+      rand(1700)+700
     end
 
   end
